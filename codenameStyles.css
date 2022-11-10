@@ -1,0 +1,128 @@
+    *, *::before, *::after {
+        box-sizing: border-box;
+        font-weight: normal;
+    }
+    body {
+        border-style: solid;
+        border-color: blue;
+        border-radius: 30px;
+        padding: 0;
+        margin: 30px;
+        padding: 30px;
+        /*background-color: gray;*/
+    }
+    /*
+    .gameboard {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        min-height: 100vh;
+        grid-template-columns: repeat(4, 100px);
+        grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    }
+    .gameboard > button {
+        cursor: pointer;
+        font-size: 2rem;
+        border: 1px solid white;
+        outline: none;
+        background-color: rgba(255,255,255,.75);
+    }
+    .span-two {
+        grid-column: span 2;
+    }
+    .output {
+        grid-column: 1/-1;
+        background-color: rgda(0,0,0,.75);
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        flex-direction: column;
+    }*/
+    h1 {
+        text-align: center;
+        /*font-size: 18pt;*/
+    }
+    select {
+        border-style: solid;
+        border-radius: 6px;
+        width: 150px;
+        padding: 6px 10px;
+        margin: 4px 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    /*button.Number {
+        background-color: #e7e7e7;
+        border: 10;
+        width: 100px;
+        height: 100px;
+        border-radius: 5px;
+    }
+    button.operator {
+        background-color: #e7e7e7;
+        border: 10;
+        width: 50px;
+        height: 100px;
+        
+    }
+    .gameboard > button:hover {
+        background: purple;
+        transition-duration: .4s;
+    }
+    .gameboard > button:active {
+        transform: translateY(4px);
+        transition-duration: 0s;
+    }*/
+    
+    table {
+        border-spacing: 0.5rem;
+        border-radius: 15px;
+        width: 50%;
+        height: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        /*background-color: gray;*/
+        
+        
+        
+    }
+    th{
+        
+    }
+    td {
+        border: 2px solid black;
+        /*padding: 2rem;*/
+        text-align: center;
+        width: 130px;
+        height: 60px;
+        font-size: 12pt;
+    }
+    
+    td:hover {
+          /*background-color: #ffff99;
+          color: black;*/
+          font-weight: bold;
+          border: 4px solid black;
+    }
+        
+    .center {
+        text-align: center;
+    }
+    
+    .teamRed/*:hover*/ {
+        background-color: #FF5151;
+    }
+    
+    .teamBlue/*:hover*/ {
+        background-color: #50BDF2;
+    }
+    
+    .assassin/*:hover*/ {
+        background-color: black;
+        color: white;
+    }
+    
+    .civilian/*:hover*/ {
+        background-color: #DEB887;
+    }
