@@ -1,0 +1,92 @@
+function PatternGenerator() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  spreadsheet.getRange("C20").activate();
+  var thisPuzzle = [];
+  var teamCount = [0,0,0,0];
+  var teams = ["R","B","C","A"];
+  for (let i = 0; i<5; i++){
+    thisPuzzle[i] = [];
+    for(let j = 0; j<5; j++){
+      var ndx = MyRandomIndex(teams);
+      var todaysRandVal = teams[ndx];
+      
+      //Handle Red team
+      if(todaysRandVal =="R" && teamCount[0] >=7){
+        //Logger.log("Red's: " + redCount);
+        teams.splice(teams.indexOf("R"),1);
+        //teamCount[0]++;
+        todaysRandVal = teams[MyRandomIndex(teams)];
+
+      }
+      //Handle Blue team
+      else if(todaysRandVal =="B" && teamCount[1] >=8){
+        Logger.log("blue's: " + teamCount[1]);
+        teams.splice(teams.indexOf("B"),1);
+        //teamCount[1]++;
+        todaysRandVal = teams[MyRandomIndex(teams)];
+      }
+
+      //Handle Civilian
+      else if(todaysRandVal =="C" && teamCount[2] >=9){
+        teams.splice(teams.indexOf("C"),1);
+        teamCount[2]++;
+        todaysRandVal = teams[MyRandomIndex(teams)];
+      }
+
+      //Handle Assassin
+      else if(todaysRandVal == "A" && teamCount[3] < 1){
+        //teamCount[3]++;
+        teams.splice(teams.indexOf("A"),1);
+      }
+      /*else if(todaysRandVal =="A" && teamCount[3] >0){
+        assassinCount++;
+        while(todaysRandVal == "A" && todaysRandVal != null){
+          todaysRandVal = teams[MyRandomIndex(teams)];
+        }
+      }*/
+      Logger.log("Cell: (" + (i+1) +"," + (j+1)+")\nArray: " + teams + " index: " + ndx + " and value: " + todaysRandVal);
+      TeamTracker(todaysRandVal, teamCount);
+      spreadsheet.getCurrentCell().setValue(todaysRandVal);
+      thisPuzzle[i][j] = todaysRandVal;
+      //move to next row down
+      spreadsheet.getCurrentCell().offset(1, 0).activate();
+    }
+    //Move to top of next column over
+    spreadsheet.getCurrentCell().offset(-5, 1).activate();
+  }
+  Logger.log(thisPuzzle);
+
+};
+
+function TeamTracker(team, teamCount){
+  var allTeams = teamCount;
+  if(team == "R"){
+    allTeams[0]++;
+  }
+  else if(team == "B"){
+    allTeams[1]++;
+  }
+  else if (team == "C"){
+    allTeams[2]++;
+  }
+  else if(team == "A"){
+    allTeams[3]++;
+  }
+  else{
+    Logger.log("Uh oh, none of the teams were chosen...");
+  }
+
+  return allTeams
+
+}
+
+function MyRandomIndex(arr){
+  ndx = Math.round(Math.random()*arr.length);
+  while(ndx >= arr.length){
+    ndx = Math.round(Math.random()*arr.length);
+  }
+  return ndx;
+};
+
+
+

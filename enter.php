@@ -5,7 +5,9 @@
 </head>
 <body>
   <form class="" action="index.html" method="post">
-    <textarea name="name" rows="8" cols="80">Enter Name:</textarea>
+    <p>Enter Name:</p>
+    <input type="text" id="gamename" name="gamename" value="">
+
     <input type="submit" name="" value="">
   </form>
 </body>
